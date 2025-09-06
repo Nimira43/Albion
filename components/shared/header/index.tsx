@@ -1,3 +1,5 @@
+import { PiShoppingCart, PiUserCircle } from 'react-icons/pi'
+
 const Header = () => {
   return ( 
     <header>
