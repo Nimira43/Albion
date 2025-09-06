@@ -11,8 +11,20 @@ const NotFoundPage = () => {
         width={48}
         height={48}
         alt={`${APP_NAME}`}
+        priority={true}
       
       />
+      <div className='p-6 w-1/3 rounded-md shadow-md text-center'>
+        <h1 className='text-3xl font-medium mb-4'>Page Not Found</h1>
+        <p>We could not find the page you were looking for.</p>
+        <Button
+          variant='outline'
+          className='mt-4 ml-2'
+          onClick={() => (window.location.href = '/')}
+        >
+          Back To Home
+        </Button>
+      </div>
     </div>
    )
 }
