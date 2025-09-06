@@ -44,6 +44,18 @@ const ModeToggle = () => {
         >
           System
         </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem 
+          checked={ theme === 'dark'}
+          onClick={() => setTheme('dark')}
+        >
+          Dark
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem 
+          checked={ theme === 'light'}
+          onClick={() => setTheme('light')}
+        >
+          Light
+        </DropdownMenuCheckboxItem>
       </DropdownMenuContent>
     </DropdownMenu>
    )
