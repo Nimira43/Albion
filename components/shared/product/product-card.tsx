@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Card, CardHeader } from '@/components/ui/card'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 
 const ProductCard = ({
   product
@@ -19,6 +19,14 @@ const ProductCard = ({
           priority={true}
         />
       </CardHeader>
+      <CardContent className='p-4 grid gap-4'>
+        <div className='text-xs'>{product.brand}</div>
+        <Link href={`/product/${product.slug}`}>
+          <h2 className='text-sm font-medium'>
+            {product.name}
+          </h2>
+        </Link>
+      </CardContent>
     </Card>
    )
 }
