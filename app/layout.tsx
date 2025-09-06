@@ -1,7 +1,7 @@
 import type { Metadata } from 'next' 
 import { Poppins } from 'next/font/google' 
 import '@/assets/styles/globals.css' 
-import { APP_NAME } from '@/lib/constants'
+import { APP_DESCRIPTION, APP_NAME, SERVER_URL } from '@/lib/constants'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     template: `%s | Albion`,
     default: APP_NAME,
   },
-  description: 'E-commerce website using Next JS 15, TypeScript, Tailwind, Shadcn, Prisma and PostgreSQL',
+  description: APP_DESCRIPTION,
+  metadataBase: new URL(SERVER_URL)
 } 
 
 export default function RootLayout({
