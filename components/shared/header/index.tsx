@@ -25,6 +25,18 @@ const Header = () => {
             </span>
           </Link>
         </div>
+        <div className='space-x-2'>
+          <Button asChild variant='ghost'>
+            <Link href='/cart'>
+              <PiShoppingCart /> Cart
+            </Link>
+          </Button>
+          <Button asChild variant='ghost'>
+            <Link href='/sign-in'>
+              <PiUserCircle /> Login
+            </Link>
+          </Button>
+        </div>
       </div>
     </header>  
   )
