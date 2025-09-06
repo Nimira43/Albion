@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuContent } from '@/components/ui/dropdown-menu'
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuContent, DropdownMenuCheckboxItem } from '@/components/ui/dropdown-menu'
 import { PiSun, PiMoon } from 'react-icons/pi'
 import { LuSunMoon } from 'react-icons/lu'
 import { useTheme } from 'next-themes'
@@ -24,6 +24,7 @@ const ModeToggle = () => {
       <DropdownMenuTrigger asChild>
         <Button
           variant='ghost'
+          className='focus-visible:ring-0 focus-visible:ring-offset-0'
         >
           { theme === 'system' ? (
             <LuSunMoon />
@@ -34,6 +35,10 @@ const ModeToggle = () => {
           )}
         </Button>
       </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuLabel className='font-medium'>Appearance</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+      </DropdownMenuContent>
     </DropdownMenu>
    )
 }
