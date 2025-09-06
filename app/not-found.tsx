@@ -5,7 +5,15 @@ import { Button } from '@/components/ui/button'
 
 const NotFoundPage = () => {
   return ( 
-    <div>Not Found</div>
+    <div className='flex flex-col items-center justify-center min-h-screen'>
+      <Image 
+        src='/images/logo1.png'
+        width={48}
+        height={48}
+        alt={`${APP_NAME}`}
+      
+      />
+    </div>
    )
 }
  
