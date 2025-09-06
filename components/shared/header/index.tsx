@@ -24,9 +24,7 @@ const Header = () => {
             </span>
           </Link>
         </div>
-        <div className='space-x-2'>
-          <Menu />
-        </div>
+        <Menu />
       </div>
     </header>  
   )

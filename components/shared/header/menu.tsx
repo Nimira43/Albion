@@ -2,6 +2,8 @@ import { Button } from '@/components/ui/button'
 import ModeToggle from './mode-toggle'
 import Link from 'next/link'
 import { PiShoppingCart, PiUserCircle } from 'react-icons/pi'
+import { IoEllipsisVerticalOutline } from 'react-icons/io5'
+import { Sheet, SheetTrigger } from '@/components/ui/sheet'
 
 const Menu = () => {
   return ( 
@@ -18,6 +20,13 @@ const Menu = () => {
             <PiUserCircle /> Login
           </Link>
         </Button>
+      </nav>
+      <nav className='md:hidden'>
+        <Sheet>
+          <SheetTrigger className='align-middle'>
+            <
+          </SheetTrigger>
+        </Sheet>
       </nav>
     </div>
    )
