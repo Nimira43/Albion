@@ -1,8 +1,5 @@
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms)) 
-
-const HomePage = async () => {
-  await delay(2000)
-
+const HomePage = () => {
+  
   return ( 
    <div>Albion</div>
     
