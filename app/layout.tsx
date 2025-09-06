@@ -9,7 +9,10 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: `${APP_NAME}`,
+  title: {
+    template: `%s | Albion`,
+    default: APP_NAME,
+  },
   description: 'E-commerce website using Next JS 15, TypeScript, Tailwind, Shadcn, Prisma and PostgreSQL',
 } 
 
