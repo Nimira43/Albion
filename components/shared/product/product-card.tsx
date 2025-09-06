@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { Card, CardHeader } from '@/components/ui/card'
 
 const ProductCard = ({
   product
@@ -7,7 +8,11 @@ const ProductCard = ({
   product: any
 }) => {
   return ( 
-    <div>Product Card</div>
+    <Card className='w-full max-w-sm'>
+      <CardHeader className='p-0 items-center'>
+        <Link href={`/product/${product.slug}`} />
+      </CardHeader>
+    </Card>
    )
 }
  

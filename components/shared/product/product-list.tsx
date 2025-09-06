@@ -1,3 +1,5 @@
+import ProductCard from "./product-card"
+
 const ProductList = ({ 
   data, 
   title,
