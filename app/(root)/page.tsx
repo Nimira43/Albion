@@ -6,7 +6,7 @@ const HomePage = () => {
   return ( 
     <>
       <ProductList 
-        data={sampleData}
+        data={sampleData.products}
         title='Newest Products'
       />
     </>
