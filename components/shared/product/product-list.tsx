@@ -6,7 +6,11 @@ const ProductList = ({
   title?: string
 }) => {
   return ( 
-    <div>Product List</div>
+    <div className='my-10'>
+      <h2 className='h2-bold mb-4'>
+        {title}
+      </h2>
+    </div>
    )
 }
  
