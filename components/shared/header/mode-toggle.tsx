@@ -38,6 +38,12 @@ const ModeToggle = () => {
       <DropdownMenuContent>
         <DropdownMenuLabel className='font-medium'>Appearance</DropdownMenuLabel>
         <DropdownMenuSeparator />
+        <DropdownMenuCheckboxItem 
+          checked={ theme === 'system'}
+          onClick={() => setTheme('system')}
+        >
+          System
+        </DropdownMenuCheckboxItem>
       </DropdownMenuContent>
     </DropdownMenu>
    )
