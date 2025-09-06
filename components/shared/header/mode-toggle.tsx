@@ -15,7 +15,13 @@ const ModeToggle = () => {
         <Button
           variant='ghost'
         >
-
+          { theme === 'system' ? (
+            <LuSunMoon />
+          ) : theme === 'dark' ? (
+            <PiMoon />
+          ) : (
+            <PiSun />
+          )}
         </Button>
       </DropdownMenuTrigger>
     </DropdownMenu>
