@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-weight: 300;
+}
+
 .app-name {
   font-family: 'Great Vibes', cursive;
   letter-spacing: 3px;
