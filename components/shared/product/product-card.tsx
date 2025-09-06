@@ -27,6 +27,10 @@ const ProductCard = ({
             {product.name}
           </h2>
         </Link>
+        <div className='flex-between gap-4'>
+          <p>{product.rating} Stars</p>
+          {}
+        </div>
       </CardContent>
     </Card>
    )
