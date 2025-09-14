@@ -1,6 +1,7 @@
 'use server'
 
 import { PrismaClient } from '@prisma/client'
+import { convertToPlainObject } from '../utils'
 
 export async function getLatestProducts() {
   const prisma = new PrismaClient()
