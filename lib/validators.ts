@@ -1,4 +1,5 @@
 import {z} from 'zod'
+import { formatNumberWithDecimal } from './utils'
 
 export const insertProductSchema = z.object({
   name: z.string().min(3, 'Name must be at least 3 characters.'),
@@ -10,5 +11,7 @@ export const insertProductSchema = z.object({
   images: z.array(z.string()).min(1, 'Product must have at least 1 image.'),
   isFeatured: z.boolean(),
   banner: z.string().nullable(),
-  
+  price: z
+    .string()
+    .refine((value) => /regex/.test(formatNumberWithDecimal(Number(value))) )
 })
