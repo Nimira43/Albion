@@ -13,5 +13,5 @@ export const insertProductSchema = z.object({
   banner: z.string().nullable(),
   price: z
     .string()
-    .refine((value) => /regex/.test(formatNumberWithDecimal(Number(value))) )
+    .refine((value) => /^\d+(\.\d{2})?$/.test(formatNumberWithDecimal(Number(value))),)
 })
