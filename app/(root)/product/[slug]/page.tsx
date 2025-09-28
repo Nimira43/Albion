@@ -18,7 +18,14 @@ const ProductDetailsPage = async ({
     <>
       <section>
         <div className='grid grid-cols-1 md:grid-cols-5'>
-          
+          <div className='col-span-2'>
+            <span>Images</span>  
+          </div>
+          <div className='col-span-2 p-5'>
+            <div className='flex flex-col gap-6'>
+              <p>{ product.brand } {product.category}</p>
+            </div>
+          </div>
         </div>
       </section>
     
