@@ -24,6 +24,14 @@ const ProductDetailsPage = async ({
           <div className='col-span-2 p-5'>
             <div className='flex flex-col gap-6'>
               <p>{ product.brand } {product.category}</p>
+              <h1 className='h3-bold'>{product.name}</h1>
+              <p>{product.rating} of {product.numReviews} Reviews</p>
+              <div className='flex flex-col sm:flex-row sm:items-center gap-3'>
+                <ProductPrice 
+                  value={Number(product.price)}
+                  className='w-24 rounded-xl bg-grey-light-medium text-grey-dark px-5 py-2'
+                />
+              </div>
             </div>
           </div>
         </div>
