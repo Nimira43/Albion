@@ -5,15 +5,14 @@ import { getProductBySlug } from '@/lib/actions/product.actions'
 import { notFound } from 'next/navigation'
 import ProductPrice from '@/components/shared/product/product-price'
 
-const ProductDetailsPage = async ({
-  params
-}: {
-  params: { slug: string }
+const ProductDetailsPage = async (props: {
+  params: Promise<{ slug: string }>
 }) => {
-  const product = await getProductBySlug(params.slug)
+  const { slug } = await props.params
+  const product = await getProductBySlug(slug)
 
   if (!product) notFound()
-
+    
   return (
     <>
       <section>
@@ -88,20 +87,3 @@ const ProductDetailsPage = async ({
 
 export default ProductDetailsPage
 
-
-/*
-
-// const ProductDetailsPage = async (props: {
-//   params: Promise<{ slug: string }>
-// }) => {
-//   const { slug } = await props.params
-//   const product = await getProductBySlug(slug)
-
-//   if (!product) notFound()
-    
-//   return ( 
-//     <>{ product.name }</>
-//    )
-// }
-
-*/
