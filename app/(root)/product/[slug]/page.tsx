@@ -33,6 +33,19 @@ const ProductDetailsPage = async ({
                 />
               </div>
             </div>
+            <div className='mt-10'>
+              <p className='font-medium'>Description</p>
+              <p>{product.description}</p>
+            </div>
+          </div>
+          <div>
+            <Card>
+              <CardContent className='p-4'>
+                <div className='mb-2 flex justify-between'>
+                  
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
