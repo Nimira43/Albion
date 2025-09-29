@@ -52,11 +52,30 @@ const ProductDetailsPage = async ({
                 <div className='mb-2 flex justify-between'>
                   <div>Status</div>
                   {product.stock > 0 ? (
-                    <Badge variant='outline'>In Stock</Badge>
+                    <Badge 
+                      variant='outline'
+                    >
+                      In Stock
+                    </Badge>
                   ) : (
-                    <Badge variant='destructive'>Out of Stock</Badge>
+                    <Badge 
+                      className='font-normal text-primary'
+                      variant='outline'
+                    >
+                      Out of Stock
+                    </Badge>
                   )}
                 </div>
+                {product.stock > 0 && (
+                  <div className='flex-center'>
+                    <Button 
+                      className='w-full'
+                      variant='outline'
+                    >
+                      Add To Cart
+                    </Button>
+                  </div>
+                )}
               </CardContent>
             </Card>
           </div>
