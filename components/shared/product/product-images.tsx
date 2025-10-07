@@ -10,13 +10,26 @@ const ProductImages = ({images} : {images: string[]}) => {
     <div className='space-y-4'>
       <Image 
         src={images[current]} 
-        alt='Product Image'
+        alt='product image'
         width={1000}
         height={1000}
+        priority
         className='min-h-[300px] object-cover object-center'
       />
       <div className='flex'>
-        
+        {images.map((image, index) => (
+          <div
+            key={image}
+            onClick={() => setCurrent(index)}
+          >
+            <Image
+              src={image} 
+              alt='image'
+              width={100}
+              height={100}
+            />
+          </div>
+        ))}
       </div>
     </div>
    )
