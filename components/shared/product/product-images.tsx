@@ -1,4 +1,4 @@
-const ProductImages = ({images: string[]}) => {
+const ProductImages = ({images} : {images: string[]}) => {
   return ( 
     <>
       Images
@@ -6,4 +6,4 @@ const ProductImages = ({images: string[]}) => {
    )
 }
  
-export default ProductsImages
+export default ProductImages
