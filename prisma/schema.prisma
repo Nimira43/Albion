@@ -44,6 +44,9 @@ model Account {
   type                String
   provider            String
   providerAccountId   String
+  refresh_token       String?
+  access_token        String?
+  
   user                User        @relation(fields: [userId], references: [id], onDelete: Cascade) 
   @@id([provider, providerAccountId])
 }
