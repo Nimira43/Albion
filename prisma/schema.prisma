@@ -39,5 +39,7 @@ model User {
 }
 
 model Account {
-  
+  userId          String      @db.Uuid
+  type            String
+
 }
