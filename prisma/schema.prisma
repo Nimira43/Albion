@@ -41,5 +41,5 @@ model User {
 model Account {
   userId          String      @db.Uuid
   type            String
-
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade) 
 }
