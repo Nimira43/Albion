@@ -70,3 +70,7 @@ model Session {
   createdAt           DateTime    @default(now()) @db.Timestamp(6) 
   updatedAt           DateTime    @updatedAt
 }
+
+model VerificationToken {
+  
+}
