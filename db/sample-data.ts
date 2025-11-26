@@ -5,8 +5,9 @@ const sampleData = {
     {
       name: 'John',
       email: 'admin@example.com',
-      password: ''
-    }
+      password: hashSync('123456', 10),
+      role: 'admin'
+    },
   ],
   products: [
     {
