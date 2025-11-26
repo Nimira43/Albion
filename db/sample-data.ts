@@ -1,3 +1,5 @@
+import { hashSync } from 'bcrypt-ts-edge'
+
 const sampleData = {
   users: [
     {
