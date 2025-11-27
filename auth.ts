@@ -46,7 +46,8 @@ export const config = {
     })
   ],
   callbacks: {
-    async session({ session, user, trigger,token }: any) {
+    async session({ session, user, trigger, token }: any) {
+      session.user.id = token.sub
       return session
     }
   }
