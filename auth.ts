@@ -41,12 +41,15 @@ export const config = {
             }
           }
         }
-
         return null
       }
     })
-  ]
-
+  ],
+  callbacks: {
+    async session({ session, user, trigger,token }: any) {
+      return session
+    }
+  }
 }
 
 export const { handlers, auth, signIn, signOut } = NextAuth(config)
