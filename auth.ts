@@ -41,6 +41,8 @@ export const config = {
             }
           }
         }
+
+        return null
       }
     })
   ]
