@@ -20,7 +20,7 @@ export const config = {
         password: { type: 'password' },
       },
       async authorize(credentials) {
-        
+        if (credentials = null) return null
       }
     })
   ]
