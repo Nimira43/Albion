@@ -31,6 +31,15 @@ export const config = {
 
         if (user && user.password) {
           const isMatch = compareSync(credentials.password as string, user.password)
+
+          if (isMatch) {
+            return {
+              id: user.id,
+              name: user.name,
+              email: user.email,
+              role: user.role
+            }
+          }
         }
       }
     })
