@@ -21,6 +21,8 @@ export async function signInWithCredentials(
       message: 'Signed in successfully'
     }
   } catch (error) {
-    
+    if (isRedirectError(error)) {
+      throw error
+    }
   }
 }
