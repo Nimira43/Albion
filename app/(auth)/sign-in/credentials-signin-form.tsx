@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { signInDefaultValues } from '@/lib/constants'
+import Link from 'next/link'
 
 const CredentialsSignInForm = () => {
   return ( 
@@ -36,6 +37,17 @@ const CredentialsSignInForm = () => {
           >
             Login
           </Button>
+        </div>
+        <div className='text-sm text-center text-muted-foreground'>
+          Don&apos;t have an account?{' '}
+          <Link
+            href='/sign-up'
+            target='_self'
+            className='text-main'
+          >
+            Register  
+          </Link>
+          
         </div>
       </div>
     </form>

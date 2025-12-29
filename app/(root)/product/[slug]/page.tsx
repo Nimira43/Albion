@@ -72,7 +72,7 @@ const ProductDetailsPage = async (props: {
                   <div className='flex-center'>
                     <Button 
                       className='w-full'
-                      variant='outline'
+                      variant='default'
                     >
                       Add To Cart
                     </Button>

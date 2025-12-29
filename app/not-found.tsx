@@ -18,7 +18,7 @@ const NotFoundPage = () => {
         <h1 className='text-3xl font-medium mb-4'>Page Not Found</h1>
         <p>We could not find the page you were looking for.</p>
         <Button
-          variant='outline'
+          variant='default'
           className='mt-4 ml-2'
           onClick={() => (window.location.href = '/')}
         >
