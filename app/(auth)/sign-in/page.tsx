@@ -3,12 +3,13 @@ import { APP_NAME } from '@/lib/constants'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import CredentialsSignInForm from './credentials-signin-form'
 
 export const metadata: Metadata = {
   title: 'Login'
 }
 
-const SignIn = () => {
+const SignInPage = () => {
   return ( 
     <div className='w-full max-w-md mx-auto'>
       <Card>
@@ -29,7 +30,7 @@ const SignIn = () => {
             Login to your account
           </CardDescription>
           <CardContent className='space-y-4'>
-            Form goes here
+            <CredentialsSignInForm />
           </CardContent>
         </CardHeader>
       </Card>
@@ -37,4 +38,4 @@ const SignIn = () => {
   )
 }
  
-export default SignIn
+export default SignInPage
