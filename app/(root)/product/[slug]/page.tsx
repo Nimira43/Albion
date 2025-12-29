@@ -31,7 +31,7 @@ const ProductDetailsPage = async (props: {
               <div className='flex flex-col sm:flex-row sm:items-center gap-3'>
                 <ProductPrice 
                   value={Number(product.price)}
-                  className='w-24 rounded-xl bg-grey-light-medium text-grey-dark px-5 py-2'
+                  className='w-24 rounded-xl bg-grey-3 text-grey-1 px-5 py-2'
                 />
               </div>
             </div>
