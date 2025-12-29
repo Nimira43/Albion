@@ -14,7 +14,8 @@ module.exports = {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
-  		colors: {
+			colors: {
+				'main': '#ff4500',
 				'support': '#008080',
 				'light': '#fffcfa',
 				'dark': '#111',
@@ -22,6 +23,10 @@ module.exports = {
 				'grey-medium': '#999',
 				'grey-light-medium': '#ccc',
 				'grey-light': '#eee',
+				'grey-1': '#333',
+				'grey-2': '#999',
+				'grey-3': '#ccc',
+				'grey-4': '#eee',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -52,9 +57,15 @@ module.exports = {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'
   			},
-  			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
+  			border: {
+					DEFAULT: 'hsl(var(--border))'
+				},
+				input: {
+					DEFAULT: 'hsl(var(--input))'
+				},
+				ring: {
+					DEFAULT: 'hsl(var(--ring))'
+				},
   			chart: {
   				'1': 'hsl(var(--chart-1))',
   				'2': 'hsl(var(--chart-2))',
