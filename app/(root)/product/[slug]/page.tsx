@@ -61,7 +61,7 @@ const ProductDetailsPage = async (props: {
                     </Badge>
                   ) : (
                     <Badge 
-                      className='font-normal text-primary'
+                      className='font-normal text-main'
                       variant='outline'
                     >
                       Out of Stock

@@ -36,7 +36,7 @@ const ProductCard = ({
               value={Number(product.price)}
             />
           ) : (
-            <p className='text-primary'>Out of Stock</p>
+            <p className='text-main'>Out of Stock</p>
           )}
         </div>
       </CardContent>
