@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { signInDefaultValues } from '@/lib/constants'
@@ -27,6 +28,14 @@ const CredentialsSignInForm = () => {
             autoComplete='password'
             defaultValue={signInDefaultValues.password}
           />
+        </div>
+        <div>
+          <Button
+            className='w-full'
+            variant='default'
+          >
+            Login
+          </Button>
         </div>
       </div>
     </form>
