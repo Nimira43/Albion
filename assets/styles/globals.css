@@ -17,6 +17,10 @@
   transition: border-color 0.5s ease-in-out;
 }
 
+.transitioning {
+  transition: all 0.5s ease-in-out;
+}
+
 @layer utilities {
   .wrapper {
     @apply max-w-7xl lg:mx-auto p-5 md:px-10 w-full;
