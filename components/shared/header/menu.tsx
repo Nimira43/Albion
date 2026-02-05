@@ -1,9 +1,10 @@
 import { Button } from '@/components/ui/button'
 import ModeToggle from './mode-toggle'
 import Link from 'next/link'
-import { PiShoppingCart, PiUserCircle } from 'react-icons/pi'
+import { PiShoppingCart } from 'react-icons/pi'
 import { IoEllipsisVerticalOutline } from 'react-icons/io5'
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import UserButton from './user-button'
 
 const Menu = () => {
   return ( 
@@ -15,11 +16,7 @@ const Menu = () => {
             <PiShoppingCart /> Cart
           </Link>
         </Button>
-        <Button asChild variant='ghost'>
-          <Link href='/sign-in'>
-            <PiUserCircle /> Login
-          </Link>
-        </Button>
+        <UserButton />
       </nav>
       <nav className='md:hidden'>
         <Sheet>
@@ -34,11 +31,7 @@ const Menu = () => {
                 <PiShoppingCart /> Cart
               </Link>
             </Button>
-            <Button asChild variant='ghost'>
-              <Link href='/sign-in'>
-                <PiUserCircle /> Login
-              </Link>
-            </Button>
+            <UserButton />
             <SheetDescription></SheetDescription>
           </SheetContent>
         </Sheet>
