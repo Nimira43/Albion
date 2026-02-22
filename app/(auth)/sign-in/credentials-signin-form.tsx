@@ -84,7 +84,6 @@ const CredentialsSignInForm = () => {
           >
             Register  
           </Link>
-          
         </div>
       </div>
     </form>

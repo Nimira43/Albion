@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { auth } from '@/auth'
 import { redirect } from 'next/navigation'
+import SignUpForm from './sign-up-form'
 
 export const metadata: Metadata = {
   title: 'Register'
@@ -25,13 +26,13 @@ const SignUpPage = async (props: {
   return ( 
     <div className='w-full max-w-md mx-auto'>
       <Card>
-        <CardHeader className='space-y-4'>
+        <CardHeader className='space-y-2'>
           <Link href='/' className='flex-center'>
             <Image
               src='/images/logo1.png' 
               alt={`${APP_NAME} logo`}
-              width={100}
-              height={100}
+              width={50}
+              height={50}
               priority={true}
             />
           </Link>
@@ -41,10 +42,10 @@ const SignUpPage = async (props: {
           <CardDescription className='text-center'>
             Create your account
           </CardDescription>
-          <CardContent className='space-y-4'>
-            Register Form
-          </CardContent>
         </CardHeader>
+        <CardContent className='space-y-4'>
+          <SignUpForm />
+        </CardContent>
       </Card>
     </div>
   )

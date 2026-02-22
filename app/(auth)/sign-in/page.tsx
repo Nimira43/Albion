@@ -26,13 +26,13 @@ const SignInPage = async (props: {
   return ( 
     <div className='w-full max-w-md mx-auto'>
       <Card>
-        <CardHeader className='space-y-4'>
+        <CardHeader className='space-y-2'>
           <Link href='/' className='flex-center'>
             <Image
               src='/images/logo1.png' 
               alt={`${APP_NAME} logo`}
-              width={100}
-              height={100}
+              width={50}
+              height={50}
               priority={true}
             />
           </Link>
@@ -41,11 +41,11 @@ const SignInPage = async (props: {
           </CardTitle>
           <CardDescription className='text-center'>
             Login to your account
-          </CardDescription>
-          <CardContent className='space-y-4'>
-            <CredentialsSignInForm />
-          </CardContent>
+          </CardDescription>  
         </CardHeader>
+        <CardContent className='space-y-4'>
+          <CredentialsSignInForm />
+        </CardContent>
       </Card>
     </div>
   )
