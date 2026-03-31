@@ -26,7 +26,7 @@ const AddToCart = ({ item }: {item: CartItem }) => {
       description: `${item.name} add to cart.`,
       action: (
         <ToastAction 
-          className='bg-primary text-light hover:bg-dark'
+          className='bg-dark text-light hover:bg-dark/80 dark:bg-light dark:text-dark dark:hover:bg-light/80 transitioning'
           altText='Go To Cart'
           onClick={() => router.push('/cart')}
         >
