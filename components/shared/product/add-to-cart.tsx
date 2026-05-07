@@ -7,6 +7,8 @@ import { useToast } from '@/hooks/use-toast'
 import { ToastAction } from '@/components/ui/toast'
 import { addItemToCart, removeItemFromCart } from '@/lib/actions/cart.action'
 import { TbPlus, TbMinus } from 'react-icons/tb'
+import { Loader } from 'lucide-react'
+import { useTransition } from 'react'
 
 const AddToCart = ({
   cart,
@@ -17,53 +19,65 @@ const AddToCart = ({
 }) => {
   const router = useRouter()
   const { toast } = useToast()
+  const [isPending, startTransition] = useTransition()
   
   const handleAddToCart = async () => {
-    const res = await addItemToCart(item)
+    startTransition(async () => {
+      const res = await addItemToCart(item)
 
-    if (!res.success) {
+      if (!res.success) {
+        toast({
+          variant: 'destructive',
+          description: res.message
+        })
+        return
+      }
+
       toast({
-        variant: 'destructive',
-        description: res.message
+        description: res.message,
+        action: (
+          <ToastAction 
+            className='bg-dark text-light hover:bg-dark/80 dark:bg-light dark:text-dark dark:hover:bg-light/80 transitioning'
+            altText='Go To Cart'
+            onClick={() => router.push('/cart')}
+          >
+            Go To Cart
+          </ToastAction>    
+        )
       })
-      return
-    }
-
-    toast({
-      description: res.message,
-      action: (
-        <ToastAction 
-          className='bg-dark text-light hover:bg-dark/80 dark:bg-light dark:text-dark dark:hover:bg-light/80 transitioning'
-          altText='Go To Cart'
-          onClick={() => router.push('/cart')}
-        >
-          Go To Cart
-        </ToastAction>    
-      )
-    })
+    })  
   }
 
   const handleRemoveFromCart = async () => {
-    const res = await removeItemFromCart(item.productId)
-    toast({
-      variant: res.success ? 'default' : 'destructive',
-      description: res.message
+    startTransition(async () => {
+      const res = await removeItemFromCart(item.productId)
+      toast({
+        variant: res.success ? 'default' : 'destructive',
+        description: res.message
+      })
+      return
     })
-    return
   }
 
-  const existItem = cart && cart.items.find((x) => x.productId === item.productId)
+  const existItem = cart && cart.items
+    .find((x) => x.productId === item.productId)
 
   return (  
-    existItem ?
-      (
+    existItem
+      ? (
         <div>
           <Button
             type='button'
             variant='outline'
             onClick={handleRemoveFromCart}
           >
-            <TbMinus className='h-4 w-4' />
+            {isPending
+              ? (
+                <Loader className='w-4 h-4 animate-spin' />
+              ): (
+                <TbMinus className='h-4 w-4' />      
+              )
+            }
           </Button>
           <span className='px-2'>
             {existItem.qty}
@@ -73,7 +87,13 @@ const AddToCart = ({
             variant='outline'
             onClick={handleAddToCart}
           >
-            <TbPlus className='h-4 w-4' />
+            {isPending
+              ? (
+                <Loader className='w-4 h-4 animate-spin' />
+              ): (
+                <TbPlus className='h-4 w-4' />      
+              )
+            }
           </Button>
         </div>
       ): (
@@ -82,7 +102,14 @@ const AddToCart = ({
           type='button'
           onClick={handleAddToCart}
         >
-          <TbPlus /> Add to Cart
+          {isPending
+            ? (
+              <Loader className='w-4 h-4 animate-spin' />
+            ): (
+              <TbPlus className='h-4 w-4' />      
+            )
+          }
+          Add to Cart
         </Button >
       )
   )
