@@ -21,8 +21,8 @@ export const signUpDefaultValues = {
 
 export const shippingAddressDefaultValues = {
   fullName: 'John Smith',
-  street: '1 High Street',
+  streetAddress: '1 High Street',
   city: 'Newtown',
   postalCode: 'NW1 2AB',
-  country: 'UK'
+  country: 'United Kingdom'
 }
