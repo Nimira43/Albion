@@ -1,4 +1,3 @@
-import { PAYMENT_METHODS } from './constants/index';
 import {z} from 'zod'
 import { formatNumberWithDecimal } from './utils'
 import { PAYMENT_METHODS } from './constants'
