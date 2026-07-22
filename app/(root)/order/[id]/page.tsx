@@ -16,9 +16,6 @@ const OrderDetailsPage = async (props: {
 
   if (!order) notFound()
 
-
-
-  
   return (  
     <div>
       <span>Total Price</span>

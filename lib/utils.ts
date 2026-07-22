@@ -58,3 +58,59 @@ export function formatCurrency(amount: number | string | null) {
     return 'NaN'
   }
 }
+
+export function formatId(id: string) {
+  return `..${id.substring(id.length - 6)}`
+}
+
+export const formatDateTime = (dateString: Date) => {
+  const dateTimeOptions: Intl.DateTimeFormatOptions = {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false
+  }
+
+  const dateOptions: Intl.DateTimeFormatOptions = {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }
+
+  const timeOptions: Intl.DateTimeFormatOptions = {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false,
+  }
+
+  const formattedDateTime: string = new Date(dateString).toLocaleString(
+    'en-GB',
+    dateTimeOptions,
+  )
+  
+  const formattedDate: string = new Date(dateString).toLocaleString(
+    'en-GB',
+    dateOptions,
+  )
+  
+  const formattedTime: string = new Date(dateString).toLocaleString(
+    'en-GB',
+    timeOptions,
+  )
+
+  return {
+    dateTime: formattedDateTime,
+    dateOnly: formattedDate,
+    timeOnly: formattedTime
+  }
+}
+
+const testDate = new Date('2026-07-22T08:25:00Z')
+const formatted = formatDateTime(testDate)
+
+console.log('Full DateTime:', formatted.dateTime)
+console.log('Date Only:', formatted.dateOnly)
+console.log('Time Only:', formatted.timeOnly)
