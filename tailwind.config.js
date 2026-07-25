@@ -23,6 +23,7 @@ module.exports = {
 				'grey-2': '#999',
 				'grey-3': '#ccc',
 				'grey-4': '#eee',
+				'grey-5': '#fafafa',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
