@@ -23,13 +23,19 @@ export const paypal = {
         ]
       })
     })
-
-    if (response.ok) {
-      return await response.json()
-    } else {
-      const errorMessage = await response.text()
-      throw new Error(errorMessage)
-    }
+    return handleResponse(response)
+  },
+  capturePayment: async function capturePayment(orderId: string) {
+    const accessToken = await generateAccessToken()
+    const url = `${base}/v2/checkout/orders/${orderId}/capture`
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`
+      }
+    })
+    return handleResponse(response)
   }
 }
 
@@ -45,13 +51,16 @@ async function generateAccessToken() {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
   })
+  const jsonData = await handleResponse(response)
+  return jsonData.access_token
+}
 
+async function handleResponse(response: Response) {
   if (response.ok) {
-    const jsonData = await response.json()
-    return jsonData.access_token
+    return response.json();
   } else {
-    const errorMessage = await response.text()
-    throw new Error(errorMessage)
+    const errorMessage = await response.text();
+    throw new Error(errorMessage);
   }
 }
 
