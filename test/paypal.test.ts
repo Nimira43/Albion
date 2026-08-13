@@ -19,5 +19,19 @@ test('creates a paypal order', async () => {
   expect(orderResponse).toHaveProperty('id')
   expect(orderResponse).toHaveProperty('status')
   expect(orderResponse.status).toBe('CREATED')
+})
 
+test('simulate capturing a payment from an order', async () => {
+  const orderId = '100'
+
+  const mockCapturePayment = jest
+    .spyOn(paypal, 'capturePayment')
+    .mockResolvedValue({
+    status: 'COMPLETED',
+    })
+  
+  const captureResponse = await paypal.capturePayment(orderId)
+  expect(captureResponse).toHaveProperty('status', 'COMPLETED')
+
+  mockCapturePayment.mockRestore()
 })
