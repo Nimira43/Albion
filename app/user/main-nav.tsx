@@ -34,7 +34,7 @@ const MainNav = ({
           href={item.href}
           className={
             cn(
-              'text-sm font-medium hover:text-main transitioning curso-pointer',
+              'text-sm font-medium hover:text-main transitioning cursor-pointer',
               pathname.includes(item.href)
                 ? ''
                 : 'text-muted-foreground'
