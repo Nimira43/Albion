@@ -7,6 +7,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { MdOutlineCreditCard, MdOutlineCurrencyPound } from 'react-icons/md'
 import { PiBarcode, PiUsersThreeLight } from "react-icons/pi"
+import Charts from './charts'
 
 export const metadata: Metadata = {
   title: 'Admin Dashboard'
@@ -88,7 +89,9 @@ const AdminOverviewPage = async () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            {/* Chart */}
+            <Charts data={{
+              salesData: summary.salesData
+            }} />
           </CardContent>
         </Card>
         <Card className='col-span-3'>
