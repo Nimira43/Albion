@@ -3,20 +3,37 @@
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { formatCurrency, formatDateTime, formatId } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
+import {
+  formatCurrency,
+  formatDateTime,
+  formatId
+} from '@/lib/utils'
 import { Order } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
-import { PayPalButtons, PayPalScriptProvider, usePayPalScriptReducer } from '@paypal/react-paypal-js'
-import { createPayPalOrder, approvePayPalOrder } from '@/lib/actions/order.actions'
+import {
+  PayPalButtons,
+  PayPalScriptProvider,
+  usePayPalScriptReducer
+} from '@paypal/react-paypal-js'
+import {
+  createPayPalOrder,
+  approvePayPalOrder,
+  updateOrderToPaidCOD,
+  deliverOrder
+} from '@/lib/actions/order.actions'
 import { useToast } from '@/hooks/use-toast'
+import { useTransition } from 'react'
 
 const OrderDetailsTable = ({
   order,
-  paypalClientId
+  paypalClientId,
+  isAdmin
 }: {
   order: Order,
-  paypalClientId: string
+  paypalClientId: string,
+  isAdmin: boolean
 }) => {
   const {
     id,
@@ -68,8 +85,25 @@ const OrderDetailsTable = ({
       variant: res.success ? 'default' : 'destructive',
       description: res.message
     })
+  }
 
-
+  const MarkAsPaidButton = () => {
+    const [isPending, startTransition] = useTransition()
+    const { toast } = useToast()
+    
+    return (
+      <Button>
+        MarkAsPaidButton
+      </Button>
+    )
+  }
+  
+  const MarkAsDeliveredButton = () => {    
+    return (
+      <Button>
+        MarkAsDeliveredButton
+      </Button>
+    )
   }
 
   return (
@@ -234,6 +268,15 @@ const OrderDetailsTable = ({
                   </PayPalScriptProvider>
                 </div>
               )}
+
+              {isAdmin && !isPaid && paymentMethod === 'CashOnDelivery' && (
+                <MarkAsPaidButton />
+              )}
+              
+              {isAdmin && isPaid && !isDelivered && (
+                <MarkAsDeliveredButton />
+              )}
+
             </CardContent>
           </Card>
         </div>
