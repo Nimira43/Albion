@@ -92,8 +92,20 @@ const OrderDetailsTable = ({
     const { toast } = useToast()
     
     return (
-      <Button>
-        MarkAsPaidButton
+      <Button
+        type='button'
+        disabled={isPending}
+        onClick={
+          () => startTransition(async () => {
+            const res = await updateOrderToPaidCOD(order.id)
+            toast({
+              variant: res.success ? 'default' : 'destructive',
+              description: res.message
+            })
+          })
+        }
+      >
+        {isPending ? 'Processing...' : 'Mark As Paid'}
       </Button>
     )
   }
