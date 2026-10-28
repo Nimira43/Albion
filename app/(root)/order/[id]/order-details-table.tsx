@@ -111,9 +111,24 @@ const OrderDetailsTable = ({
   }
   
   const MarkAsDeliveredButton = () => {    
+    const [isPending, startTransition] = useTransition()
+    const { toast } = useToast()
+    
     return (
-      <Button>
-        MarkAsDeliveredButton
+      <Button
+        type='button'
+        disabled={isPending}
+        onClick={
+          () => startTransition(async () => {
+            const res = await deliverOrder(order.id)
+            toast({
+              variant: res.success ? 'default' : 'destructive',
+              description: res.message
+            })
+          })
+        }
+      >
+        {isPending ? 'Processing...' : 'Mark As Delivered'}
       </Button>
     )
   }
